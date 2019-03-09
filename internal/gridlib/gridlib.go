@@ -2,275 +2,220 @@ package gridlib
 
 import (
     "fmt"
+    "math/rand"
     "strings"
 )
 
+type Simulation interface {
+    Init(Vec)
+    Tick()
+}
+
 type Cell interface {
-    Pos() Vector
-    Val() CellVal
+    Val() int
+    Set(int)
 }
 
-type CellVal int
-
-type Lattice struct {
-    Lattice [][]int
-    Size    Vector
-    //Center   Vector
-    Min, Max Vector // Extrapolated from Size and Center
-}
-
-func (l *Lattice) SetBounds() {
-    l.Size.X = len(l.Lattice[0])
-    l.Size.Y = len(l.Lattice)
-
-    l.Min = Vector{0, 0}
-    l.Max = Vector{l.Size.X - 1, l.Size.Y - 1}
-
-    //l.Max = Vector{l.Size.X - l.Center.X - 1, l.Size.Y - l.Center.Y - 1}
-    //l.Min = Vector{l.Max.X - l.Size.X + 1, l.Max.Y - l.Size.Y + 1}
-}
-
-type Vector struct {
+type Vec struct {
     X, Y int
 }
 
-func (l Lattice) Contains(pos Vector) bool {
-    if l.Min.X <= pos.X && pos.X <= l.Max.X && l.Min.Y <= pos.Y && pos.Y <= l.Max.Y {
-        return true
+type Lattice struct {
+    Grid [][]Cell
+    Size Vec
+
+    overlay [][]Cell
+}
+
+type Coords []Vec
+
+func (l *Lattice) Init(randomize bool, val, rarity int) {
+    for y := 0; y < l.Size.Y; y++ {
+        l.Grid = append(l.Grid, []Cell{})
+        for x := 0; x < l.Size.X; x++ {
+            var v Cell
+
+            if randomize {
+                v.Set(rand.Intn(val))
+                for i := 0; i < rarity; i++ {
+                    v.Set(v.Val() & rand.Intn(val))
+                }
+            } else {
+                v.Set(val)
+            }
+
+            l.Grid[y] = append(l.Grid[y], v)
+        }
+    }
+}
+
+// Clear overlay
+func (l *Lattice) BeginTransaction() {
+    l.overlay = make([][]Cell, l.Size.Y)
+    for yi := 0; yi < l.Size.Y; yi++ {
+        l.overlay[yi] = make([]Cell, l.Size.X)
+    }
+}
+
+func (l *Lattice) Set(v Vec, n int) {
+    //if l.Check(v) {
+    //    l.overlay[v.Y][v.X] = n
+    //}
+    t := l.Wrap(v)
+    l.overlay[t.Y][t.X].Set(n)
+}
+
+func (l *Lattice) Add(v Vec, n int) {
+    //if l.Check(v) {
+    //    l.overlay[v.Y][v.X] += n
+    //}
+    t := l.Wrap(v)
+    l.overlay[t.Y][t.X].Set(l.overlay[t.Y][t.X].Val() + n)
+}
+
+// Replace grid with overlay
+func (l *Lattice) CommitSet() {
+    l.Grid = l.overlay
+}
+
+// Add overlay cells to grid cells
+func (l *Lattice) CommitAdd() {
+    for yi := 0; yi < l.Size.Y; yi++ {
+        for xi := 0; xi < l.Size.X; xi++ {
+            l.Grid[yi][xi].Set(l.Grid[yi][xi].Val() + l.overlay[yi][xi].Val())
+        }
+    }
+}
+
+// Check if coordinates are inside grid
+func (l Lattice) Check(v Vec) bool {
+    if 0 <= v.X && v.X < l.Size.X {
+        if 0 <= v.Y && v.Y < l.Size.Y {
+            return true
+        }
     }
     return false
 }
 
+func (l Lattice) Wrap(v Vec) Vec {
+    return Vec{
+        X: mod(v.X, l.Size.X),
+        Y: mod(v.Y, l.Size.Y),
+    }
+}
+
 func (l Lattice) Print() {
-    fmt.Println("+-" + strings.Repeat("--", l.Size.Y) + "+")
-    for _, y := range l.Lattice {
-        fmt.Print("| ")
-
+    fmt.Printf("┌%s┐\n", strings.Repeat("─", l.Size.X*4+2))
+    for _, y := range l.Grid {
+        fmt.Print("│ ")
         for _, x := range y {
-            if x == 0 {
-                fmt.Print("  ")
+            if x.Val() != 0 {
+                fmt.Printf("%-4d", x)
             } else {
-                fmt.Print(x, " ")
+                fmt.Printf("·   ")
             }
         }
-        fmt.Println("|")
+        fmt.Println(" │")
     }
-    fmt.Println("+-" + strings.Repeat("--", l.Size.Y) + "+")
+    fmt.Printf("└%s┘\n", strings.Repeat("─", l.Size.X*4+2))
 }
 
-func (l Lattice) VonNeumann(cell Cell, r int) (positions []Vector) {
-    //fmt.Printf("(%-5d,%-5d) ... (%-5d,%-5d)\n",
-    //    cell.Pos().X-r, cell.Pos().Y-r,
-    //    cell.Pos().X+r, cell.Pos().Y+r,
-    //)
+func (l Lattice) Moore(v Vec, distance int) (coords Coords) {
+    set := func(px, py, d int) {
+        //if l.Check(Vec{px, py}) {
+        //    coords = append(coords, Vec{px, py})
+        //}
+        coords = append(coords, l.Wrap(Vec{px, py}))
+    }
 
-    for y := cell.Pos().Y - r; y <= cell.Pos().Y+r; y++ {
-        for x := cell.Pos().X - r; x <= cell.Pos().X+r; x++ {
-            if x == cell.Pos().X && y == cell.Pos().Y {
-                continue
-            }
-            if l.Contains(Vector{x, y}) {
-                positions = append(positions, Vector{x, y})
-            }
+    for d := 1; d < distance+1; d++ {
+        px, py := v.X-d, v.Y-d
+
+        for i := 0; i < d*2; i++ {
+            set(px, py, d)
+            px++
+        }
+
+        for i := 0; i < d*2; i++ {
+            set(px, py, d+20)
+            py++
+        }
+
+        for i := 0; i < d*2; i++ {
+            set(px, py, d+30)
+            px--
+        }
+
+        for i := 0; i < d*2; i++ {
+            set(px, py, d+40)
+            py--
         }
     }
 
-    //r := 3
-    //for x := -r; x <= r; x++ {
-    //   r_x := r - abs(x)
-    //   for y := -r_x; y <= r_x; y++ {
-    //       r_y := r_x - abs(y)
-    //
-    //       fmt.Println(r_x, r_y)
-    //   }
+    return
+}
+
+func (l *Lattice) VonNeumann(v Vec, distance int) (coords Coords) {
+    set := func(px, py, d int) {
+        //if l.Check(Vec{px, py}) {
+        //    coords = append(coords, Vec{px, py})
+        //}
+        coords = append(coords, l.Wrap(Vec{px, py}))
+    }
+
+    for d := 0; d < distance; d++ {
+        px, py := v.X-d, v.Y
+
+        for i := 0; i < d; i++ {
+            set(px, py, d+10)
+            px++
+            py++
+        }
+
+        for i := 0; i < d; i++ {
+            set(px, py, d+20)
+            px++
+            py--
+        }
+
+        for i := 0; i < d; i++ {
+            set(px, py, d+30)
+            px--
+            py--
+        }
+
+        for i := 0; i < d; i++ {
+            set(px, py, d+40)
+            px--
+            py++
+        }
+
+    }
+
+    return
+}
+
+func (l Lattice) Index(v Vec) (val Cell) {
+    //if l.Check(v) {
+    //    return l.Grid[v.Y][v.X]
     //}
+    //return
 
-    return
+    t := l.Wrap(v)
+    return l.Grid[t.Y][t.X]
 }
 
-func (l Lattice) Index(vector Vector) int {
-    if l.Contains(vector) {
-        return l.Lattice[vector.Y][vector.X]
-    } else {
-        return 0
-    }
-}
-
-func (l Lattice) SumVectors(vectors []Vector) (sum int) {
-    for _, v := range vectors {
-        sum += l.Index(v)
+func (l Lattice) Sum(coords Coords) (sum int) {
+    for _, v := range coords {
+        sum += l.Index(v).Val()
     }
     return
 }
 
-//func (l Lattice) VonNeumannOld(cell Cell, distance int) (vec []Vector) {
-//    //var m = [14][14]int{}
-//
-//    add := func(px, py int) {
-//        if l.Contains(px, py) {
-//            fmt.Println(fmt.Sprintf(" + %5d %5d %5d", py, px, len(vec)))
-//            vec = append(vec, Vector{px, py})
-//
-//            //m[py][px] = 1
-//
-//            //    vec = append(vec, Vector{px, py})
-//        } else {
-//            fmt.Println(fmt.Sprintf("-  %5d %5d %5d", py, px, len(vec)))
-//        }
-//        //fmt.Println(l.Contains(px, py))
-//    }
-//
-//    _ = add
-//
-//    //for d := distance; d > 0; d-- {
-//
-//    //px := cell.Pos().X - distance
-//    py := cell.Pos().Y - distance
-//
-//    for d := 0; d < distance*2; d++ {
-//
-//        for px := cell.Pos().X - distance; px < cell.Pos().X+distance; px++ {
-//            add(px, py)
-//        }
-//
-//        py++
-//
-//        //px := cell.Pos().X - d
-//        //py := cell.Pos().Y - d
-//        //for c := 0; c < cell.Pos().X; c++ {
-//        //    add(px, py)
-//        //}
-//        //py--
-//
-//        //px := cell.Pos().X - d
-//        //py := cell.Pos().Y - d
-//
-//        //for c := 0; c < d * 2; c++ {
-//        //    add(px, py)
-//        //    px++
-//        //}
-//        //for c := 0; c < d * 2; c++ {
-//        //    add(px, py)
-//        //    py--
-//        //}
-//        //for c := 0; c < d * 2; c++ {
-//        //    add(px, py)
-//        //    px--
-//        //}
-//        //for c := 0; c < d * 2; c++ {
-//        //    add(px, py)
-//        //    py++
-//        //}
-//
-//        //var px = cell.Pos().X - d
-//        //var py = cell.Pos().Y - d
-//        //
-//        //for c := px; c <= px + d; c++ {
-//        //    add(px, py)
-//        //    px++
-//        //}
-//        //for c := py; c <= py - d; c++ {
-//        //    add(px, py)
-//        //    py--
-//        //}
-//        //for c := px; c >= px - d; c-- {
-//        //    add(px, py)
-//        //    px--
-//        //}
-//        //for c := py; c >= py - d; c-- {
-//        //    add(px, py)
-//        //    py++
-//        //}
-//
-//        //for c := 0; c < d; c++ {
-//        //   add(px, py)
-//        //   px++
-//        //   py--
-//        //}
-//        //for c := 0; c < d; c++ {
-//        //   add(px, py)
-//        //   px++
-//        //   py++
-//        //}
-//        //for c := 0; c < d; c++ {
-//        //   add(px, py)
-//        //   px--
-//        //   py--
-//        //}
-//        //for c := 0; c < d; c++ {
-//        //   add(px, py)
-//        //   px--
-//        //   py--
-//        //}
-//
-//        //fmt.Println("------")
-//        //fmt.Println(" x", len(vec), d)
-//        //fmt.Println("------")
-//        //fmt.Println()
-//        //fmt.Println()
-//        //
-//        //m[8][10] = 2
-//
-//        //for _, y := range m {
-//        //   for _, x := range y {
-//        //       switch x {
-//        //       case 0:
-//        //           fmt.Print(".")
-//        //       case 1:
-//        //           fmt.Print("x")
-//        //       case 2:
-//        //           fmt.Print("+")
-//        //       }
-//        //   }
-//        //   fmt.Println()
-//        //}
-//        //fmt.Println()
-//
-//        //m = [14][14]int{}
-//    }
-//
-//    //for d := distance; d > 0; d-- {
-//    //    var px = cell.Pos().X - d
-//    //    var py = cell.Pos().Y
-//    //
-//    //    for c := 0; c < (d * 2); c++ {
-//    //        add(px, py)
-//    //        px++
-//    //    }
-//    //    for c := 0; c < (d * 2); c++ {
-//    //        add(px, py)
-//    //        px++
-//    //
-//    //    }
-//    //    for c := 0; c < (d * 2); c++ {
-//    //        add(px, py)
-//    //        px++
-//    //
-//    //    }
-//    //    for c := 0; c < (d * 2); c++ {
-//    //        add(px, py)
-//    //        px++
-//    //
-//    //    }
-//    //
-//    //    fmt.Println("------")
-//    //    fmt.Println(" x", len(vec), d)
-//    //    fmt.Println("------")
-//    //    fmt.Println()
-//    //    fmt.Println()
-//    //}
-//
-//    fmt.Println("------")
-//    fmt.Println(" *", len(vec))
-//    fmt.Println("------")
-//    fmt.Println()
-//    fmt.Println()
-//
-//    return
-//}
-
-func abs(i int) int {
-    n := int64(i)
-    y := n >> 63
-    return int((n ^ y) - y)
+func mod(d, m int) (rem int) {
+    rem = d % m
+    if rem < 0 {
+        rem += m
+    }
+    return
 }

@@ -2,20 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e22b6e48-36e3-43ba-8b64-a9b7e374decf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/abelian.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/ajr.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmd/abelian/abelian.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmd/abelian/abelian.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmd/abelian/abelian_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/abelian/abelian.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/gridlib/gridlib.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/schema/particle.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/schema/particle_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/gridlib/gridlib_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/ajr.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/ajr.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/abelian/abelian.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/abelian/abelian_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/abelian/abelian.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/abelian/abelian.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/gridlib/gridlib.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/gridlib/gridlib.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/schema/particle.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/schema/particle.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/schema/particle_test.go" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,83 +19,82 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/internal/abelian/abelian.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1287">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
-              <folding>
-                <element signature="e#17#97#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/internal/gridlib/gridlib.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="65" selection-start-line="65" selection-end-line="65" />
-              <folding>
-                <element signature="e#17#51#0" expanded="true" />
-                <element signature="n#!!block;n#Print#0" />
-                <element signature="e#2201#2275#0" />
-                <element signature="n#!!block;n#abs#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/internal/schema/particle_test.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
-              <folding>
-                <element signature="e#16#92#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/internal/schema/particle.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="7" column="16" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="16" />
-              <folding>
-                <element signature="e#16#88#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmd/abelian/abelian_test.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
-              <folding>
-                <element signature="e#14#90#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmd/abelian/abelian.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
-              <folding>
-                <element signature="e#14#115#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="vertical" split-proportion="0.5259027">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/cmd/abelian/abelian.go">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="160">
+                  <caret line="10" selection-start-line="10" selection-end-line="10" />
+                  <folding>
+                    <element signature="e#14#115#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/internal/abelian/abelian.go">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="215">
+                  <caret line="71" column="22" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/internal/schema/particle.go">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="39">
+                  <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+                  <folding>
+                    <element signature="e#16#88#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/internal/gridlib/gridlib.go">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="448">
+                  <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+                  <folding>
+                    <element signature="e#17#51#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/internal/gridlib/gridlib_test.go">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="304">
+                  <caret line="19" selection-start-line="19" selection-end-line="19" />
+                  <folding>
+                    <element signature="e#17#82#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/internal/schema/particle.go">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="167">
+                  <caret line="24" column="25" lean-forward="true" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -119,6 +113,10 @@
       <find>c &lt; d</find>
       <find>x</find>
       <find>Y</find>
+      <find>grid</find>
+      <find>:</find>
+      <find>seed</find>
+      <find>check</find>
       <find>println</find>
     </findStrings>
     <replaceStrings>
@@ -133,21 +131,26 @@
     </replaceStrings>
   </component>
   <component name="GOROOT" path="S:\goroot" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/cmd/abelian/abelian.go" />
         <option value="$PROJECT_DIR$/cmd/abelian/abelian_test.go" />
+        <option value="$PROJECT_DIR$/internal/schema/particle_test.go" />
+        <option value="$PROJECT_DIR$/internal/schema/schema.go" />
+        <option value="$PROJECT_DIR$/internal/gridlib/gridlib_test.go" />
+        <option value="$PROJECT_DIR$/internal/gridlib/gridlib.go" />
         <option value="$PROJECT_DIR$/internal/abelian/abelian.go" />
         <option value="$PROJECT_DIR$/internal/schema/particle.go" />
-        <option value="$PROJECT_DIR$/internal/gridlib/gridlib.go" />
-        <option value="$PROJECT_DIR$/internal/schema/particle_test.go" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
-    <option name="width" value="1383" />
+    <option name="width" value="1294" />
     <option name="height" value="1407" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -208,12 +211,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultGoTemplateProperty" value="Go File" />
-    <property name="GO_FMT" value="true" />
+    <property name="GO_FMT" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="last_opened_file_path" value="G:/My Drive/dev/golang/2018-04/gridlib0" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Confirmation" />
   </component>
   <component name="RecentsManager">
@@ -233,122 +237,169 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Test.TestParticle_VonNeumann in github.com/ajruckman/abelian/internal/schema">
+  <component name="RunManager" selected="Go Build.go build abelian.go">
     <configuration name="go build abelian.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="abelian" />
       <working_directory value="$PROJECT_DIR$/" />
+      <go_parameters value="-o abelian.exe" />
       <kind value="FILE" />
       <filePath value="$PROJECT_DIR$/cmd/abelian/abelian.go" />
       <package value="github.com/ajruckman/abelian" />
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
-    <configuration name="TestParticle_VonNeumann in github.com/ajruckman/abelian/internal/schema" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestLattice_Check in github.com/ajruckman/abelian/internal/gridlib" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="abelian" />
-      <working_directory value="$PROJECT_DIR$/internal/schema" />
+      <working_directory value="$PROJECT_DIR$/internal/gridlib" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="github.com/ajruckman/abelian/internal/schema" />
+      <package value="github.com/ajruckman/abelian/internal/gridlib" />
       <directory value="$PROJECT_DIR$/" />
       <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestParticle_VonNeumann$" />
+      <pattern value="^TestLattice_Check$" />
       <method v="2" />
     </configuration>
-    <configuration name="gobench abelian_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestLattice_Print in github.com/ajruckman/abelian/internal/gridlib" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="abelian" />
-      <working_directory value="$PROJECT_DIR$/cmd/abelian" />
-      <framework value="gobench" />
-      <kind value="FILE" />
-      <package value="github.com/ajruckman/abelian" />
-      <directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/cmd/abelian/abelian_test.go" />
-      <method v="2" />
-    </configuration>
-    <configuration name="particle_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="abelian" />
-      <working_directory value="$PROJECT_DIR$/internal/schema" />
+      <working_directory value="$PROJECT_DIR$/internal/gridlib" />
       <framework value="gotest" />
-      <kind value="FILE" />
-      <package value="github.com/ajruckman/abelian" />
+      <kind value="PACKAGE" />
+      <package value="github.com/ajruckman/abelian/internal/gridlib" />
       <directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/internal/schema/particle_test.go" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestLattice_Print$" />
       <method v="2" />
     </configuration>
+    <configuration name="go test github.com/ajruckman/abelian/internal/gridlib" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="abelian" />
+      <working_directory value="$PROJECT_DIR$/internal/gridlib" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/ajruckman/abelian/internal/gridlib" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Go Build.go build abelian.go" />
+      <item itemvalue="Go Test.TestLattice_Print in github.com/ajruckman/abelian/internal/gridlib" />
+      <item itemvalue="Go Test.TestLattice_Check in github.com/ajruckman/abelian/internal/gridlib" />
+      <item itemvalue="Go Test.go test github.com/ajruckman/abelian/internal/gridlib" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.TestParticle_VonNeumann in github.com/ajruckman/abelian/internal/schema" />
-        <item itemvalue="Go Test.particle_test.go" />
         <item itemvalue="Go Build.go build abelian.go" />
-        <item itemvalue="Go Test.gobench abelian_test.go" />
+        <item itemvalue="Go Test.go test github.com/ajruckman/abelian/internal/gridlib" />
+        <item itemvalue="Go Test.TestLattice_Check in github.com/ajruckman/abelian/internal/gridlib" />
+        <item itemvalue="Go Test.TestLattice_Print in github.com/ajruckman/abelian/internal/gridlib" />
       </list>
     </recent_temporary>
   </component>
   <component name="TestHistory">
-    <history-entry file="TestParticle_VonNeumann_in_github_com_ajruckman_abelian_internal_schema - 2019.03.08 at 19h 59m 17s.xml">
-      <configuration name="TestParticle_VonNeumann in github.com/ajruckman/abelian/internal/schema" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestLattice_Print_in_github_com_ajruckman_abelian_internal_gridlib - 2019.03.09 at 11h 15m 30s.xml">
+      <configuration name="TestLattice_Print in github.com/ajruckman/abelian/internal/gridlib" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestParticle_VonNeumann_in_github_com_ajruckman_abelian_internal_schema - 2019.03.08 at 20h 00m 06s.xml">
-      <configuration name="TestParticle_VonNeumann in github.com/ajruckman/abelian/internal/schema" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestLattice_Print_in_github_com_ajruckman_abelian_internal_gridlib - 2019.03.09 at 11h 15m 36s.xml">
+      <configuration name="TestLattice_Print in github.com/ajruckman/abelian/internal/gridlib" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestParticle_VonNeumann_in_github_com_ajruckman_abelian_internal_schema - 2019.03.08 at 20h 00m 14s.xml">
-      <configuration name="TestParticle_VonNeumann in github.com/ajruckman/abelian/internal/schema" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestLattice_Print_in_github_com_ajruckman_abelian_internal_gridlib - 2019.03.09 at 11h 16m 18s.xml">
+      <configuration name="TestLattice_Print in github.com/ajruckman/abelian/internal/gridlib" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestParticle_VonNeumann_in_github_com_ajruckman_abelian_internal_schema - 2019.03.08 at 20h 01m 31s.xml">
-      <configuration name="TestParticle_VonNeumann in github.com/ajruckman/abelian/internal/schema" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestLattice_Check_in_github_com_ajruckman_abelian_internal_gridlib - 2019.03.09 at 11h 17m 23s.xml">
+      <configuration name="TestLattice_Check in github.com/ajruckman/abelian/internal/gridlib" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestParticle_VonNeumann_in_github_com_ajruckman_abelian_internal_schema - 2019.03.08 at 20h 01m 40s.xml">
-      <configuration name="TestParticle_VonNeumann in github.com/ajruckman/abelian/internal/schema" configurationId="GoTestRunConfiguration" />
+    <history-entry file="go_test_github_com_ajruckman_abelian_internal_gridlib - 2019.03.09 at 11h 17m 30s.xml">
+      <configuration name="go test github.com/ajruckman/abelian/internal/gridlib" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestParticle_VonNeumann_in_github_com_ajruckman_abelian_internal_schema - 2019.03.08 at 20h 01m 53s.xml">
-      <configuration name="TestParticle_VonNeumann in github.com/ajruckman/abelian/internal/schema" configurationId="GoTestRunConfiguration" />
+    <history-entry file="go_test_github_com_ajruckman_abelian_internal_gridlib - 2019.03.09 at 11h 48m 14s.xml">
+      <configuration name="go test github.com/ajruckman/abelian/internal/gridlib" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestParticle_VonNeumann_in_github_com_ajruckman_abelian_internal_schema - 2019.03.08 at 20h 02m 03s.xml">
-      <configuration name="TestParticle_VonNeumann in github.com/ajruckman/abelian/internal/schema" configurationId="GoTestRunConfiguration" />
+    <history-entry file="go_test_github_com_ajruckman_abelian_internal_gridlib - 2019.03.09 at 11h 48m 36s.xml">
+      <configuration name="go test github.com/ajruckman/abelian/internal/gridlib" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestParticle_VonNeumann_in_github_com_ajruckman_abelian_internal_schema - 2019.03.08 at 20h 02m 15s.xml">
-      <configuration name="TestParticle_VonNeumann in github.com/ajruckman/abelian/internal/schema" configurationId="GoTestRunConfiguration" />
+    <history-entry file="go_test_github_com_ajruckman_abelian_internal_gridlib - 2019.03.09 at 11h 48m 57s.xml">
+      <configuration name="go test github.com/ajruckman/abelian/internal/gridlib" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestParticle_VonNeumann_in_github_com_ajruckman_abelian_internal_schema - 2019.03.08 at 20h 02m 41s.xml">
-      <configuration name="TestParticle_VonNeumann in github.com/ajruckman/abelian/internal/schema" configurationId="GoTestRunConfiguration" />
+    <history-entry file="go_test_github_com_ajruckman_abelian_internal_gridlib - 2019.03.09 at 11h 49m 08s.xml">
+      <configuration name="go test github.com/ajruckman/abelian/internal/gridlib" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestParticle_VonNeumann_in_github_com_ajruckman_abelian_internal_schema - 2019.03.08 at 20h 02m 47s.xml">
-      <configuration name="TestParticle_VonNeumann in github.com/ajruckman/abelian/internal/schema" configurationId="GoTestRunConfiguration" />
+    <history-entry file="go_test_github_com_ajruckman_abelian_internal_gridlib - 2019.03.09 at 11h 53m 43s.xml">
+      <configuration name="go test github.com/ajruckman/abelian/internal/gridlib" configurationId="GoTestRunConfiguration" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1383" height="1407" extended-state="0" />
+    <frame x="-7" y="0" width="1294" height="1407" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15192744" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16531605" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32967034" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.49058086" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22762951" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <option name="LIMIT_HISTORY" value="false" />
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
+    <MESSAGE value="before rewrite" />
+    <option name="LAST_COMMIT_MESSAGE" value="before rewrite" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/internal/schema/particle_test.go" />
+    <entry file="file://$PROJECT_DIR$/internal/schema/particle.go" />
+    <entry file="file://$PROJECT_DIR$/cmd/abelian/abelian_test.go" />
+    <entry file="file://S:/goroot/src/builtin/builtin.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="133" column="5" selection-start-line="133" selection-start-column="5" selection-end-line="133" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../faiface/mainthread/mainthread.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://S:/goroot/src/math/rand/rand.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="168" selection-start-line="168" selection-end-line="168" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internal/gridlib/gridlib_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#17#82#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cmd/abelian/abelian.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -359,56 +410,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmd/abelian/abelian_test.go">
+    <entry file="file://$PROJECT_DIR$/internal/abelian/abelian.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="215">
+          <caret line="71" column="22" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internal/gridlib/gridlib.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
           <folding>
-            <element signature="e#14#90#0" expanded="true" />
+            <element signature="e#17#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/internal/schema/particle.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="7" column="16" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="16" />
-          <folding>
-            <element signature="e#16#88#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/internal/gridlib/gridlib.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="65" selection-start-line="65" selection-end-line="65" />
-          <folding>
-            <element signature="e#17#51#0" expanded="true" />
-            <element signature="n#!!block;n#Print#0" />
-            <element signature="e#2201#2275#0" />
-            <element signature="n#!!block;n#abs#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/internal/abelian/abelian.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1287">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-          <folding>
-            <element signature="e#17#97#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/internal/schema/particle_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
-          <folding>
-            <element signature="e#16#92#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="167">
+          <caret line="24" column="25" lean-forward="true" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
         </state>
       </provider>
     </entry>

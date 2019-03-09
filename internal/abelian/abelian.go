@@ -1,95 +1,83 @@
 package abelian
 
 import (
-    "fmt"
+    "github.com/ajruckman/abelian/internal/gridlib"
+    "github.com/ajruckman/abelian/internal/schema"
     "github.com/ajruckman/lib/err"
     "github.com/faiface/pixel"
     "github.com/faiface/pixel/imdraw"
     "github.com/faiface/pixel/pixelgl"
     "golang.org/x/image/colornames"
     "math/rand"
-    "sync"
     "time"
 )
 
 var (
+    size             = gridlib.Vec{X: 128, Y: 128}
+    cellSize float64 = 5
+    ops      int
+
     cfg = pixelgl.WindowConfig{
         Title:  "Abelian",
-        Bounds: pixel.R(0, 0, 1024, 1024),
-        //VSync:  true,
+        Bounds: pixel.R(0, 0, float64(size.X)*cellSize, float64(size.Y)*cellSize),
+        VSync:  true,
     }
-    cellSize float64 = 1
-    wg       sync.WaitGroup
-    ops      int
 )
 
-func RunInt() {
+func runInt() {
     win, err := pixelgl.NewWindow(cfg)
     liberr.Err(err)
 
     win.SetPos(pixel.V(0, 26))
 
     var (
-        draw1 = imdraw.New(nil)
-        //g     = grid()
-        cell = square()
+        grid  = genGrid()
+        cells = genSquare()
+        p     = schema.ParticleSim{}
     )
+    _ = grid
 
-    draw1.Color = colornames.White
+    p.Init(size)
+    //p.Lattice.Print()
 
-    for !win.Closed() {
-        win.Clear(colornames.Black)
-        cell.Clear()
-
-        for i := 0; i < 1000; i++ {
-            x := float64(rand.Intn(int(cfg.Bounds.Max.X / cellSize))) * cellSize
-            y := float64(rand.Intn(int(cfg.Bounds.Max.Y / cellSize))) * cellSize
-
-            cell.Push(offset(x, y)...)
-
-            cell.Polygon(0)
+    for range time.Tick(time.Second / 30) {
+        if win.Closed() {
+            break
         }
 
-        cell.Draw(win)
+        win.Clear(colornames.Black)
+        cells.Clear()
 
-        //g.Draw(win)
+        p.Tick()
+
+        drawLattice(p.Lattice, cells)
+
+        cells.Draw(win)
+        //grid.Draw(win)
         win.Update()
-        ops++
     }
-
-    wg.Done()
 }
 
-func tick() {
-    var (
-        before = time.Second * 10
-        dur    = time.Second * 60
-        after  = time.Millisecond * 250
-    )
-
-    time.Sleep(before)
-    ops1 := ops
-    time.Sleep(dur - (2 * before))
-    ops2 := ops
-    time.Sleep(after)
-
-    d := ops2 - ops1
-    n := dur - before - after
-
-    fmt.Println(d, n, (float64(d)/float64(n.Nanoseconds()))*float64(time.Second))
-
-    wg.Done()
+func init() {
+    rand.Seed(time.Now().UnixNano())
 }
 
 func Run() {
-    wg.Add(1)
-    go RunInt()
-    go tick()
-    wg.Wait()
-    fmt.Println(ops)
+    runInt()
 }
 
-func grid() (draw *imdraw.IMDraw) {
+func drawLattice(l gridlib.Lattice, cells *imdraw.IMDraw) {
+    for yi, y := range l.Grid {
+        for xi, x := range y {
+            if x.Val() != 0 {
+                cells.Push(cellVec(float64(xi)*cellSize, float64(yi)*cellSize)...)
+                cells.Polygon(0)
+            }
+        }
+    }
+}
+
+func genGrid() (draw *imdraw.IMDraw) {
     draw = imdraw.New(nil)
     draw.Color = colornames.White
 
@@ -108,7 +96,7 @@ func grid() (draw *imdraw.IMDraw) {
     return
 }
 
-/* To use matrix instead of offset
+/* To use matrix instead of cellVec
 var cellVector = []pixel.Vec{
     pixel.V(0, 0),
     pixel.V(cellSize, 0),
@@ -120,18 +108,18 @@ cell.Push(cellVector...)
 cell.SetMatrix(pixel.IM.Moved(pixel.V(x*cellSize, y*cellSize)))
 */
 
-func square() (draw *imdraw.IMDraw) {
+func genSquare() (draw *imdraw.IMDraw) {
     draw = imdraw.New(nil)
     draw.Color = colornames.Red
 
     return
 }
 
-func offset(x, y float64) []pixel.Vec {
-   return []pixel.Vec{
-       pixel.V(x, y),
-       pixel.V(x+cellSize, y),
-       pixel.V(x+cellSize, y+cellSize),
-       pixel.V(x, y+cellSize),
-   }
+func cellVec(x, y float64) []pixel.Vec {
+    return []pixel.Vec{
+        pixel.V(x, y),
+        pixel.V(x+cellSize, y),
+        pixel.V(x+cellSize, y+cellSize),
+        pixel.V(x, y+cellSize),
+    }
 }

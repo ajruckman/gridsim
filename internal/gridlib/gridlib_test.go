@@ -17,13 +17,13 @@ func TestLattice_Set(t *testing.T) {
     var l = Lattice{Size: Vec{8, 25}}
     l.Init(false, 0, -1)
 
-    l.BeginTransaction()
+    l.BeginTick()
     l.Set(Vec{100, 3}, -50)
     l.Set(Vec{4, 5}, 1)
     l.Set(Vec{7, 23}, 2)
     l.Set(Vec{0, 24}, 4)
     l.Set(Vec{0, 0}, 8)
-    l.CommitSet()
+    l.EndTickSet()
 
     l.Print()
 
@@ -50,7 +50,7 @@ func TestLattice_Check(t *testing.T) {
     }
 }
 
-func checkCoords(t *testing.T, l Lattice, coords Coords) {
+func checkCoords(t *testing.T, l Lattice, coords VecSet) {
     for i, v := range coords {
         i++
         l.Grid[v.Y][v.X] = i

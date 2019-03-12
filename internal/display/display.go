@@ -1,27 +1,30 @@
-package abelian
+package display
 
 import (
-    "github.com/ajruckman/abelian/internal/gridlib"
-    "github.com/ajruckman/abelian/internal/schema"
+    "math/rand"
+    "time"
+
     "github.com/ajruckman/lib/err"
     "github.com/faiface/pixel"
     "github.com/faiface/pixel/imdraw"
     "github.com/faiface/pixel/pixelgl"
     "golang.org/x/image/colornames"
-    "math/rand"
-    "time"
+
+    "github.com/ajruckman/gridsim/internal/gridlib"
+    "github.com/ajruckman/gridsim/internal/simulators/particle"
 )
 
 var (
-    size             = gridlib.Vec{X: 128, Y: 128}
+    size             = gridlib.Vec{X: 256, Y: 256}
     cellSize float64 = 5
-    ops      int
 
     cfg = pixelgl.WindowConfig{
         Title:  "Abelian",
         Bounds: pixel.R(0, 0, float64(size.X)*cellSize, float64(size.Y)*cellSize),
         VSync:  true,
     }
+
+    sim = particle.Sim{}
 )
 
 func runInt() {
@@ -31,16 +34,13 @@ func runInt() {
     win.SetPos(pixel.V(0, 26))
 
     var (
-        grid  = genGrid()
+        //grid  = genGrid()
         cells = genSquare()
-        p     = schema.ParticleSim{}
     )
-    _ = grid
 
-    p.Init(size)
-    //p.Lattice.Print()
+    sim.Init(size)
 
-    for range time.Tick(time.Second / 30) {
+    for true {
         if win.Closed() {
             break
         }
@@ -48,9 +48,11 @@ func runInt() {
         win.Clear(colornames.Black)
         cells.Clear()
 
-        p.Tick()
+        sim.BeginTick()
+        sim.Tick()
+        sim.EndTick()
 
-        drawLattice(p.Lattice, cells)
+        drawLattice(sim.Lattice, cells)
 
         cells.Draw(win)
         //grid.Draw(win)
@@ -69,7 +71,13 @@ func Run() {
 func drawLattice(l gridlib.Lattice, cells *imdraw.IMDraw) {
     for yi, y := range l.Grid {
         for xi, x := range y {
-            if x.Val() != 0 {
+            if x.Display() {
+                cells.Color = x.GetColor()
+                //if x.GetColor() != nil {
+                //    cells.Color = *x.GetColor()
+                //} else {
+                //    cells.Color = colornames.Green
+                //}
                 cells.Push(cellVec(float64(xi)*cellSize, float64(yi)*cellSize)...)
                 cells.Polygon(0)
             }
@@ -97,20 +105,20 @@ func genGrid() (draw *imdraw.IMDraw) {
 }
 
 /* To use matrix instead of cellVec
-var cellVector = []pixel.Vec{
+var cellVec = []pixel.Vec{
     pixel.V(0, 0),
     pixel.V(cellSize, 0),
     pixel.V(cellSize, cellSize),
     pixel.V(0, cellSize),
 }
 
-cell.Push(cellVector...)
+cell.Push(cellVec...)
 cell.SetMatrix(pixel.IM.Moved(pixel.V(x*cellSize, y*cellSize)))
 */
 
 func genSquare() (draw *imdraw.IMDraw) {
     draw = imdraw.New(nil)
-    draw.Color = colornames.Red
+    draw.Color = colornames.Purple
 
     return
 }

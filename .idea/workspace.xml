@@ -2,15 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e22b6e48-36e3-43ba-8b64-a9b7e374decf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/internal/gridlib/gridlib_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/gridlib/lattice.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/gridlib/type.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/simulators/life/life.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/simulators/life/setup.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/simulators/particle/particle.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/simulators/particle/setup.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dictionaries/ajr.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/ajr.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/abelian/abelian.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/abelian/abelian_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/abelian/abelian.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/abelian/abelian.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/abelian/abelian.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/display/display.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/abelian/abelian.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/display/display.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/gridlib/gridlib.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/gridlib/gridlib.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/schema/particle.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/schema/particle.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/schema/particle_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/gridlib/gridlib_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/gridlib/gridlib_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/schema/particle.go" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,83 +22,130 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DockManager">
+    <window id="3">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/internal/simulators/life/setup.go">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="798">
+                    <caret line="80" column="13" lean-forward="true" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="13" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.5259027">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/cmd/abelian/abelian.go">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="160">
-                  <caret line="10" selection-start-line="10" selection-end-line="10" />
-                  <folding>
-                    <element signature="e#14#115#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/internal/abelian/abelian.go">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="215">
-                  <caret line="71" column="22" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/internal/schema/particle.go">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="39">
-                  <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-                  <folding>
-                    <element signature="e#16#88#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/internal/gridlib/gridlib.go">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="448">
-                  <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-                  <folding>
-                    <element signature="e#17#51#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/internal/gridlib/gridlib_test.go">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="304">
-                  <caret line="19" selection-start-line="19" selection-end-line="19" />
-                  <folding>
-                    <element signature="e#17#82#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/internal/schema/particle.go">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="167">
-                  <caret line="24" column="25" lean-forward="true" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cmd/display/display.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="12" selection-start-column="12" selection-end-column="12" />
+              <folding>
+                <element signature="e#14#115#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/internal/display/display.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-160">
+              <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
+              <folding>
+                <element signature="e#17#203#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../faiface/pixel/color.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="661">
+              <caret line="82" selection-start-line="82" selection-end-line="82" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/internal/simulators/life/life.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/internal/simulators/particle/particle.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="928">
+              <caret line="64" column="48" selection-start-line="64" selection-start-column="38" selection-end-line="64" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/internal/simulators/particle/setup.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="478">
+              <caret line="47" column="45" selection-start-line="47" selection-start-column="45" selection-end-line="47" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/internal/gridlib/gridlib.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="32">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/internal/gridlib/gridlib_test.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/internal/gridlib/lattice.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="942">
+              <caret line="106" column="27" lean-forward="true" selection-start-line="106" selection-start-column="27" selection-end-line="106" selection-end-column="27" />
+              <folding>
+                <element signature="e#17#51#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/internal/gridlib/type.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+              <folding>
+                <element signature="e#17#45#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -118,6 +169,13 @@
       <find>seed</find>
       <find>check</find>
       <find>println</find>
+      <find>.set(</find>
+      <find>life</find>
+      <find>Begin</find>
+      <find>BeginTransaction</find>
+      <find>Commit</find>
+      <find>.Set</find>
+      <find>index</find>
     </findStrings>
     <replaceStrings>
       <replace>cellSize</replace>
@@ -128,7 +186,12 @@
       <replace>c &lt; (d * 2)</replace>
       <replace>y</replace>
       <replace>X</replace>
+      <replace>BeginTick</replace>
+      <replace>EndTick</replace>
     </replaceStrings>
+    <dirStrings>
+      <dir>S:\gopath\src\github.com\ajruckman\abelian</dir>
+    </dirStrings>
   </component>
   <component name="GOROOT" path="S:\goroot" />
   <component name="Git.Settings">
@@ -142,9 +205,25 @@
         <option value="$PROJECT_DIR$/internal/schema/particle_test.go" />
         <option value="$PROJECT_DIR$/internal/schema/schema.go" />
         <option value="$PROJECT_DIR$/internal/gridlib/gridlib_test.go" />
-        <option value="$PROJECT_DIR$/internal/gridlib/gridlib.go" />
-        <option value="$PROJECT_DIR$/internal/abelian/abelian.go" />
         <option value="$PROJECT_DIR$/internal/schema/particle.go" />
+        <option value="$PROJECT_DIR$/internal/controllers/life/particle.go" />
+        <option value="$PROJECT_DIR$/internal/abelian/abelian.go" />
+        <option value="$PROJECT_DIR$/internal/controllers/particle/particle.go" />
+        <option value="$PROJECT_DIR$/internal/controllers/particle/setup.go" />
+        <option value="$PROJECT_DIR$/internal/display/abelian.go" />
+        <option value="$PROJECT_DIR$/internal/controllers/life/setup.go" />
+        <option value="$PROJECT_DIR$/internal/controllers/life/life.go" />
+        <option value="$PROJECT_DIR$/internal/gridlib/simulation.go" />
+        <option value="$PROJECT_DIR$/internal/gridlib/interface.go" />
+        <option value="$PROJECT_DIR$/internal/gridlib/cell.go" />
+        <option value="$PROJECT_DIR$/internal/gridlib/gridlib.go" />
+        <option value="$PROJECT_DIR$/internal/gridlib/lattice.go" />
+        <option value="$PROJECT_DIR$/internal/gridlib/type.go" />
+        <option value="$PROJECT_DIR$/internal/simulators/life/life.go" />
+        <option value="$PROJECT_DIR$/internal/simulators/life/setup.go" />
+        <option value="$PROJECT_DIR$/internal/display/display.go" />
+        <option value="$PROJECT_DIR$/internal/simulators/particle/setup.go" />
+        <option value="$PROJECT_DIR$/internal/simulators/particle/particle.go" />
       </list>
     </option>
   </component>
@@ -161,6 +240,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -177,7 +257,7 @@
               <item name="abelian" type="b2602c69:ProjectViewProjectNode" />
               <item name="abelian" type="462c0819:PsiDirectoryNode" />
               <item name="cmd" type="462c0819:PsiDirectoryNode" />
-              <item name="abelian" type="462c0819:PsiDirectoryNode" />
+              <item name="display" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="abelian" type="b2602c69:ProjectViewProjectNode" />
@@ -188,7 +268,7 @@
               <item name="abelian" type="b2602c69:ProjectViewProjectNode" />
               <item name="abelian" type="462c0819:PsiDirectoryNode" />
               <item name="internal" type="462c0819:PsiDirectoryNode" />
-              <item name="abelian" type="462c0819:PsiDirectoryNode" />
+              <item name="display" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="abelian" type="b2602c69:ProjectViewProjectNode" />
@@ -200,13 +280,26 @@
               <item name="abelian" type="b2602c69:ProjectViewProjectNode" />
               <item name="abelian" type="462c0819:PsiDirectoryNode" />
               <item name="internal" type="462c0819:PsiDirectoryNode" />
-              <item name="schema" type="462c0819:PsiDirectoryNode" />
+              <item name="simulators" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="abelian" type="b2602c69:ProjectViewProjectNode" />
+              <item name="abelian" type="462c0819:PsiDirectoryNode" />
+              <item name="internal" type="462c0819:PsiDirectoryNode" />
+              <item name="simulators" type="462c0819:PsiDirectoryNode" />
+              <item name="life" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="abelian" type="b2602c69:ProjectViewProjectNode" />
+              <item name="abelian" type="462c0819:PsiDirectoryNode" />
+              <item name="internal" type="462c0819:PsiDirectoryNode" />
+              <item name="simulators" type="462c0819:PsiDirectoryNode" />
+              <item name="particle" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -218,10 +311,11 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Confirmation" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Go" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="S:\gopath\src\github.com\ajruckman\abelian\internal\controllers" />
       <recent name="S:\gopath\src\github.com\ajruckman\abelian\internal" />
     </key>
   </component>
@@ -237,9 +331,19 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Build.go build abelian.go">
+  <component name="RunManager" selected="Go Build.go build display.go">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="gridsim" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/" />
+      <package value="github.com/ajruckman/abelian" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build abelian.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="abelian" />
+      <module name="gridsim" />
       <working_directory value="$PROJECT_DIR$/" />
       <go_parameters value="-o abelian.exe" />
       <kind value="FILE" />
@@ -248,8 +352,17 @@
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
+    <configuration name="go build display.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="gridsim" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/cmd/display/display.go" />
+      <package value="github.com/ajruckman/abelian" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
     <configuration name="TestLattice_Check in github.com/ajruckman/abelian/internal/gridlib" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="abelian" />
+      <module name="gridsim" />
       <working_directory value="$PROJECT_DIR$/internal/gridlib" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
@@ -260,7 +373,7 @@
       <method v="2" />
     </configuration>
     <configuration name="TestLattice_Print in github.com/ajruckman/abelian/internal/gridlib" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="abelian" />
+      <module name="gridsim" />
       <working_directory value="$PROJECT_DIR$/internal/gridlib" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
@@ -270,8 +383,19 @@
       <pattern value="^TestLattice_Print$" />
       <method v="2" />
     </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="gridsim" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="DIRECTORY" />
+      <package value="github.com/ajruckman/abelian" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
     <configuration name="go test github.com/ajruckman/abelian/internal/gridlib" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="abelian" />
+      <module name="gridsim" />
       <working_directory value="$PROJECT_DIR$/internal/gridlib" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
@@ -282,12 +406,14 @@
     </configuration>
     <list>
       <item itemvalue="Go Build.go build abelian.go" />
+      <item itemvalue="Go Build.go build display.go" />
       <item itemvalue="Go Test.TestLattice_Print in github.com/ajruckman/abelian/internal/gridlib" />
       <item itemvalue="Go Test.TestLattice_Check in github.com/ajruckman/abelian/internal/gridlib" />
       <item itemvalue="Go Test.go test github.com/ajruckman/abelian/internal/gridlib" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build display.go" />
         <item itemvalue="Go Build.go build abelian.go" />
         <item itemvalue="Go Test.go test github.com/ajruckman/abelian/internal/gridlib" />
         <item itemvalue="Go Test.TestLattice_Check in github.com/ajruckman/abelian/internal/gridlib" />
@@ -331,12 +457,12 @@
     <frame x="-7" y="0" width="1294" height="1407" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16531605" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17017828" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32967034" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22762951" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.1978022" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -363,23 +489,16 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
     <MESSAGE value="before rewrite" />
-    <option name="LAST_COMMIT_MESSAGE" value="before rewrite" />
+    <MESSAGE value="failed interface test" />
+    <option name="LAST_COMMIT_MESSAGE" value="failed interface test" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/internal/schema/particle_test.go" />
-    <entry file="file://$PROJECT_DIR$/internal/schema/particle.go" />
     <entry file="file://$PROJECT_DIR$/cmd/abelian/abelian_test.go" />
     <entry file="file://S:/goroot/src/builtin/builtin.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="133" column="5" selection-start-line="133" selection-start-column="5" selection-end-line="133" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../faiface/mainthread/mainthread.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
         </state>
       </provider>
     </entry>
@@ -390,47 +509,120 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/internal/gridlib/gridlib_test.go">
+    <entry file="file://$PROJECT_DIR$/../../faiface/mainthread/mainthread.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="e#17#82#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="528">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmd/abelian/abelian.go">
+    <entry file="file://$PROJECT_DIR$/internal/gridlib/simulation.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="16">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internal/gridlib/cell.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../faiface/pixel/imdraw/imdraw.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="131" selection-start-line="131" selection-end-line="131" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmd/display/display.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" selection-start-column="12" selection-end-column="12" />
           <folding>
             <element signature="e#14#115#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/internal/abelian/abelian.go">
+    <entry file="file://$PROJECT_DIR$/internal/gridlib/gridlib_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="71" column="22" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
+        <state relative-caret-position="240">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/internal/gridlib/gridlib.go">
+    <entry file="file://$PROJECT_DIR$/internal/gridlib/lattice.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        <state relative-caret-position="942">
+          <caret line="106" column="27" lean-forward="true" selection-start-line="106" selection-start-column="27" selection-end-line="106" selection-end-column="27" />
           <folding>
             <element signature="e#17#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/internal/schema/particle.go">
+    <entry file="file://$PROJECT_DIR$/../../faiface/pixel/color.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="24" column="25" lean-forward="true" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+        <state relative-caret-position="661">
+          <caret line="82" selection-start-line="82" selection-end-line="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internal/gridlib/type.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+          <folding>
+            <element signature="e#17#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internal/simulators/particle/setup.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="47" column="45" selection-start-line="47" selection-start-column="45" selection-end-line="47" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internal/display/display.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-160">
+          <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
+          <folding>
+            <element signature="e#17#203#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internal/simulators/particle/particle.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="928">
+          <caret line="64" column="48" selection-start-line="64" selection-start-column="38" selection-end-line="64" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internal/simulators/life/life.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internal/gridlib/gridlib.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/internal/simulators/life/setup.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="80" column="13" lean-forward="true" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="13" />
         </state>
       </provider>
     </entry>

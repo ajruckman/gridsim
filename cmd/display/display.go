@@ -1,10 +1,10 @@
 package main
 
 import (
-    "github.com/ajruckman/abelian/internal/abelian"
+    "github.com/ajruckman/gridsim/internal/display"
     "github.com/faiface/pixel/pixelgl"
 )
 
 func main() {
-    pixelgl.Run(abelian.Run)
+    pixelgl.Run(display.Run)
 }

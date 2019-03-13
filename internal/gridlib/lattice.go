@@ -26,14 +26,50 @@ func (l Lattice) Wrap(v Vec) Vec {
     }
 }
 
-// Moore returns positions of cells in the Moore neighborhood around the vector
-// passed.
-func (l Lattice) Moore(v Vec, distance int) (coords VecSet) {
+func (l Lattice) Corners(v Vec, distance int, inclusive bool) (coords VecSet) {
     set := func(px, py, d int) {
         coords = append(coords, l.Wrap(Vec{px, py}))
     }
 
-    for d := 1; d < distance+1; d++ {
+    var d int
+    if inclusive {
+        d = 1
+    } else {
+        d = distance
+    }
+    for d = d; d < distance+1; d++ {
+        px, py := v.X-d, v.Y-d
+
+        set(px, py, d)
+        px += d * 2
+
+        set(px, py, d)
+        py += d * 2
+
+        set(px, py, d)
+        px -= d * 2
+
+        set(px, py, d)
+        px -= d * 2
+    }
+
+    return
+}
+
+// Moore returns positions of cells in the Moore neighborhood around the vector
+// passed.
+func (l Lattice) Moore(v Vec, distance int, inclusive bool) (coords VecSet) {
+    set := func(px, py, d int) {
+        coords = append(coords, l.Wrap(Vec{px, py}))
+    }
+
+    var d int
+    if inclusive {
+        d = 1
+    } else {
+        d = distance
+    }
+    for d = d; d < distance+1; d++ {
         px, py := v.X-d, v.Y-d
 
         for i := 0; i < d*2; i++ {
@@ -62,12 +98,18 @@ func (l Lattice) Moore(v Vec, distance int) (coords VecSet) {
 
 // VonNeumann returns positions of cells in the Von Neumann neighborhood around
 // the vector passed.
-func (l *Lattice) VonNeumann(v Vec, distance int) (coords VecSet) {
+func (l *Lattice) VonNeumann(v Vec, distance int, inclusive bool) (coords VecSet) {
     set := func(px, py, d int) {
         coords = append(coords, l.Wrap(Vec{px, py}))
     }
 
-    for d := 0; d < distance+1; d++ {
+    var d int
+    if inclusive {
+        d = 1
+    } else {
+        d = distance
+    }
+    for d = d; d < distance+1; d++ {
         px, py := v.X-d, v.Y
 
         for i := 0; i < d; i++ {
@@ -99,28 +141,39 @@ func (l *Lattice) VonNeumann(v Vec, distance int) (coords VecSet) {
     return
 }
 
-// Index wraps the vector passed and returns the cell located at the wrapped
+// IndexGrid wraps the vector passed and returns the cell located at the wrapped
 // vector.
-func (l Lattice) Index(v Vec) Cell {
+func (l Lattice) IndexGrid(v Vec) Cell {
     t := l.Wrap(v)
 
     return l.Grid[t.Y][t.X]
 }
 
-// Print prints a prettified lattice to the console.
-func (l Lattice) Print() {
-    fmt.Printf("┌%s┐\n", strings.Repeat("─", l.Size.X*4+2))
+// IndexOverlay wraps the vector passed and returns the cell located at the
+// wrapped vector.
+func (l Lattice) IndexOverlay(v Vec) Cell {
+    t := l.Wrap(v)
+
+    return l.Overlay[t.Y][t.X]
+}
+
+// Print returns a prettified lattice string.
+func (l Lattice) String() (res string) {
+
+    res += fmt.Sprintf("┌%s┐\n", strings.Repeat("─", l.Size.X*4+2))
     for _, y := range l.Grid {
-        fmt.Print("│ ")
+        res += "│ "
         for _, x := range y {
             s := x.String()
-            if x == nil {
-                fmt.Printf("·   ")
+            if s == nil {
+                res += "·   "
             } else {
-                fmt.Printf("%-4s", s)
+                res += fmt.Sprintf("%-4s", *s)
             }
         }
-        fmt.Println(" │")
+        res += " │\n"
     }
-    fmt.Printf("└%s┘\n", strings.Repeat("─", l.Size.X*4+2))
+    res += fmt.Sprintf("└%s┘\n", strings.Repeat("─", l.Size.X*4+2))
+
+    return
 }

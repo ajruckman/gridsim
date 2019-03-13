@@ -1,6 +1,7 @@
 package display
 
 import (
+    "fmt"
     "math/rand"
     "time"
 
@@ -16,7 +17,7 @@ import (
 
 var (
     size             = gridlib.Vec{X: 256, Y: 256}
-    cellSize float64 = 5
+    cellSize float64 = 3
 
     cfg = pixelgl.WindowConfig{
         Title:  "Abelian",
@@ -36,27 +37,46 @@ func runInt() {
     var (
         //grid  = genGrid()
         cells = genSquare()
+        begin time.Time
     )
 
     sim.Init(size)
+
+    i := 0
+    interval := 15
 
     for true {
         if win.Closed() {
             break
         }
 
-        win.Clear(colornames.Black)
-        cells.Clear()
+        if i%interval == 0 {
+            win.Clear(colornames.Black)
+            cells.Clear()
+        }
 
         sim.BeginTick()
+        if i%1000 == 0 {
+            begin = time.Now()
+        }
         sim.Tick()
+        if i%1000 == 0 {
+            dur := time.Since(begin)
+            fmt.Println(dur.Nanoseconds() / int64(time.Microsecond), i)
+        }
         sim.EndTick()
 
         drawLattice(sim.Lattice, cells)
 
-        cells.Draw(win)
-        //grid.Draw(win)
-        win.Update()
+        if i%interval == 0 {
+            cells.Draw(win)
+            win.Update()
+        }
+
+        i++
+        if i%1000 == 0 {
+            i = 0
+        }
     }
 }
 

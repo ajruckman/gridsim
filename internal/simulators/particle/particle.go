@@ -62,7 +62,7 @@ func (p *Sim) Tick() {
             }
 
             var (
-                neighbors = p.Lattice.VonNeumann(this, 2)
+                neighbors = p.Lattice.Corners(this, 2, false)
                 num       = p.Sum(neighbors)
                 n         = this
                 _         = num

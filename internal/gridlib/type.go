@@ -27,6 +27,8 @@ type Cell interface {
 
     // GetColor returns the color a cell should be displayed in.
     GetColor() color.Color
+
+    Set(int)
 }
 
 // The lattice is a 2-dimensional slice of Cells bounded by Size.

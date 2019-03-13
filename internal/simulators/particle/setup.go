@@ -37,6 +37,10 @@ func (p Particle) GetColor() color.Color {
     }
 }
 
+func (p *Particle) Set(v int) {
+    p.Value = v
+}
+
 /////
 
 type Sim struct {

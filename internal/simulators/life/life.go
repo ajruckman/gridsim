@@ -14,7 +14,7 @@ func (p *Sim) Tick() {
             var (
                 this      = gridlib.Vec{ix, iy}
                 cur       = p.IndexGrid(this).Value
-                neighbors = p.Lattice.Moore(this, 1)
+                neighbors = p.Lattice.Moore(this, 1, true)
                 num       = p.Sum(neighbors)
             )
 

@@ -29,6 +29,10 @@ func (p Life) GetColor() color.Color {
     return colornames.Red
 }
 
+func (p *Life) Set(v int) {
+    p.Value = v
+}
+
 /////
 
 type Sim struct {
@@ -44,11 +48,13 @@ func (p *Sim) Init(size gridlib.Vec) {
 
 // We define IndexGrid on the implementor so we can cast it to the right type
 func (p Sim) IndexGrid(v gridlib.Vec) *Life {
-    return p.Lattice.Grid[v.Y][v.X].(*Life)
+    return p.Lattice.IndexGrid(v).(*Life)
+    //return p.Lattice.Grid[v.Y][v.X].(*Life)
 }
 
 func (p Sim) IndexOverlay(v gridlib.Vec) *Life {
-    return p.Lattice.Overlay[v.Y][v.X].(*Life)
+    return p.Lattice.IndexOverlay(v).(*Life)
+    //return p.Lattice.Overlay[v.Y][v.X].(*Life)
 }
 
 func (p Sim) Sum(v gridlib.VecSet) (sum int) {
